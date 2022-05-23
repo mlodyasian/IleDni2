@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="iledni.css">
+    <title>Ile dni?</title>
+</head>
+
+<body>
+    <div id="calosc">
+
+        <fieldset>
+            <h1>Aktualna godzina:</h1>
+            <input type="text" id="aktualnyczas" readonly>
+            <h2>Ile mam dni?</h1>
+                <input type="date" id="nowa">
+                <button onclick="policz()">Sprawdź</button>
+                <h3>Liczba dni:</h3>
+                <input type="text" id="wynik" name="wynik" readonly>
+        </fieldset>
+    </div>
+
+    <script>
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        document.getElementById("aktualnyczas").value = time;
+
+        function policz() {
+            var today = new Date();
+            var wynik = document.getElementById("nowa").valueAsDate;
+            document.getElementById("wynik").value = Math.floor((today.getTime() - wynik.getTime()) / 1000 / 60 / 60 / 24);
+
+
+        }
+    </script>
+
+</body>
+
+</html>
